@@ -1,6 +1,6 @@
 {
   "name": "wyzie-lib",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "icon": "https://i.postimg.cc/L5ppKYC5/cclogo.png",
   "license": "MIT",
   "keywords": [
@@ -15,39 +15,41 @@
     "scraper",
     "subtitle scraper"
   ],
-  "main": "dist/wyzie-lib.cjs.js",
-  "module": "dist/wyzie-lib.es.js",
-  "browser": "dist/wyzie-lib.iife.js",
   "type": "module",
+  "main": "./lib/main.js",
+  "types": "./lib/main.d.ts",
   "files": [
-    "dist"
+    "./lib"
   ],
   "exports": {
     ".": {
-      "import": "./dist/wyzie-lib.es.js",
-      "require": "./dist/wyzie-lib.cjs.js",
-      "umd": "./dist/wyzie-lib.umd.js"
+      "import": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.js"
+      },
+      "require": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.umd.cjs"
+      }
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itzcozi/wyzie-lib.git"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc",
-    "lint": "eslint src",
-    "lint:fix": "eslint --fix src",
+    "test": "npx vitest",
     "format": "prettier --log-level warn --write \"{src/**/*.{ts,js,html,css},*.{ts,js,html,css,json,md,xml}}\"",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.0",
     "vite": "^4.5.5",
+    "vite-plugin-dts": "^4.4.0",
     "vitest": "^2.1.8"
   }
 }
