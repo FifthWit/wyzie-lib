@@ -21,7 +21,7 @@ async function constructUrl({
 
   Object.entries(queryParams).forEach(([key, value]) => {
     if (value !== undefined) {
-      url.searchParams.append(key, value);
+      url.searchParams.append(key, String(value));
     }
   });
 

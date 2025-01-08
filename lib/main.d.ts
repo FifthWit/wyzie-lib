@@ -1,25 +1,33 @@
 export declare function parseToVTT(subtitleUrl: string): Promise<string>;
 
-export declare interface QueryParams {
+export declare type QueryParams = {
     id: string;
     season?: number;
     episode?: number;
     language?: string;
     format?: string;
     hi?: boolean;
-}
+};
 
 export declare function searchSubtitles(params: SearchSubtitlesParams): Promise<SubtitleData[]>;
 
-export declare interface SearchSubtitlesParams {
-    tmdb_id?: number;
-    imdb_id?: number;
-    season?: number;
-    episode?: number;
+export declare type SearchSubtitlesParams = ({
+    tmdb_id: number;
+    imdb_id?: never;
+} | {
+    imdb_id: string;
+    tmdb_id?: never;
+}) & {
     language?: string;
     format?: string;
     hi?: boolean;
-}
+} & ({
+    season: number;
+    episode: number;
+} | {
+    season?: never;
+    episode?: never;
+});
 
 export declare type SubtitleData = {
     id: string;

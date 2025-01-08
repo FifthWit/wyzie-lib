@@ -13,7 +13,8 @@
     "vite",
     "fast",
     "scraper",
-    "subtitle scraper"
+    "subtitle scraper",
+    "open subtitles"
   ],
   "type": "module",
   "main": "./lib/main.js",
@@ -41,11 +42,10 @@
     "dev": "vite",
     "build": "vite build && tsc",
     "test": "npx vitest",
-    "format": "prettier --log-level warn --write \"{src/**/*.{ts,js,html,css},*.{ts,js,html,css,json,md,xml}}\"",
+    "format": "prettier --log-level warn --write \"{src/**/*.{ts},*.{ts,js,html,css,json,md,xml}}\"",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
     "vite": "^4.5.5",

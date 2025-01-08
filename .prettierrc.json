@@ -15,5 +15,5 @@
   "semi": true,
   "experimentalTernaries": true,
   "htmlWhitespaceSensitivity": "css",
-  "filepath": "{src/**/*.{ts,js,html,css},*.{ts,js,html,css,json,md,xml}}"
+  "filepath": "{src/**/*.{ts,js,.d.ts},*.{ts,js,html,css,json,xml}}"
 }

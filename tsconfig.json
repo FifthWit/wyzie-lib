@@ -6,9 +6,6 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "es2022",
@@ -30,5 +27,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*.ts", "src/**/*.d.ts"]
+  "include": ["src", "src/**/*.ts"]
 }

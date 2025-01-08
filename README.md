@@ -7,9 +7,9 @@ project without all the fuss. [Read our source code!](https://github.com/itzcozi
 
 ## Features
 
-- **VTT Parser**: Convert SRT subtitles to VTT format quickly.
 - **Simple**: Just one function for searching subtitles using Wyzie Subs API.
 - **Fast**: This package was written in Vite with TypeScript, so it's fast and reliable.
+- **VTT Parser**: Convert SRT subtitles to VTT format quickly.
 - **Open-Source**: The API and package are open-source.
 
 ## Installation
@@ -65,41 +65,6 @@ console.log(vttContent); // Prints the raw VTT content
 - **SearchSubtitlesParams**: All valid parameters recognized by the API.
 - **QueryParams**: All parameters (optional and required) available for the wyzie-subs API.
 - **SubtitleData**: All returned values from the API with their respective types.
-
-```ts
-interface SearchSubtitlesParams {
-  // Parameters for the searchSubtitles() function
-  tmdb_id?: number; // Parsed automatically by the API to recognize if its TMDB or IMDB
-  imdb_id?: number; // Parsed automatically by the API to recognize if its TMDB or IMDB
-  season?: number;
-  episode?: number; // Season is required if episode is provided
-  language?: string; // ISO 3166 code
-  format?: string; // Subtitle file format
-  hi?: boolean; // If the subtitle is hearing impaired
-}
-
-interface QueryParams {
-  // Parameters for the wyzie-subs API
-  id: string; // (Required) The TMDB or IMDB ID of the movie or TV show
-  season?: number; // The season of the TV show (Required if episode is provided)
-  episode?: number; // The episode of the TV show (Required if season is provided)
-  language?: string; // ISO 3166 code
-  format?: string; // Subtitle file format
-  hi?: boolean; // If the subtitle is hearing impaired
-}
-
-type SubtitleData = {
-  // Data returned by the API
-  id: string; // Unique ID of the subtitle from opensubtitles
-  url: string; // Direct download link of the subtitle
-  format: string; // Subtitle file format
-  isHearingImpaired: boolean; // If the subtitle is hearing impaired
-  flagUrl: string; // Flag of the language
-  media: string; // Media name of the subtitle
-  display: string; // Actual name of the language
-  language: string; // ISO 3166 code
-};
-```
 
 <hr />
 
