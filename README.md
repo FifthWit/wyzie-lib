@@ -48,7 +48,7 @@ const vttContent = await parseToVTT(data[0].url); // Passes the first subtitle U
 console.log(vttContent); // Prints the raw VTT content
 ```
 
-Check out demo.html for a working example using the VTT parser.
+Check out [demo.html](https://raw.githubusercontent.com/itzCozi/wyzie-lib/refs/heads/main/demo.html) for a working example using the VTT parser.
 
 ### Parameters
 
