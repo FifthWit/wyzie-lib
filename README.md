@@ -1,4 +1,9 @@
-# Wyzie Lib
+<p align="center">
+  <a href="https://sub.wyzie.ru/">
+    <img src="https://i.postimg.cc/L5ppKYC5/cclogo.png" height="120">
+    <h1 align="center">Wyzie Lib</h1>
+  </a>
+</p>
 
 Wyzie Lib is a package made for easily implementing [Wyzie Subs](https://sub.wyzie.ru) into your
 project without all the fuss. [Read our source code!](https://github.com/itzcozi/wyzie-lib)
@@ -7,8 +12,8 @@ project without all the fuss. [Read our source code!](https://github.com/itzcozi
 
 ## Features
 
-- **Simple**: Just one function for searching subtitles using Wyzie Subs API.
 - **Fast**: This package was written in Vite with TypeScript, so it's fast and reliable.
+- **Simple**: Just one function for searching subtitles using Wyzie Subs API.
 - **VTT Parser**: Convert SRT subtitles to VTT format quickly.
 - **Open-Source**: The API and package are open-source.
 
@@ -48,7 +53,8 @@ const vttContent = await parseToVTT(data[0].url); // Passes the first subtitle U
 console.log(vttContent); // Prints the raw VTT content
 ```
 
-Check out [demo.html](https://raw.githubusercontent.com/itzCozi/wyzie-lib/refs/heads/main/demo.html) for a working example using the VTT parser.
+Check out [demo.html](https://raw.githubusercontent.com/itzCozi/wyzie-lib/refs/heads/main/demo.html)
+for a working example using the VTT parser.
 
 ### Parameters
 
@@ -67,6 +73,10 @@ Check out [demo.html](https://raw.githubusercontent.com/itzCozi/wyzie-lib/refs/h
 - **SearchSubtitlesParams**: All valid parameters recognized by the API.
 - **QueryParams**: All parameters (optional and required) available for the wyzie-subs API.
 - **SubtitleData**: All returned values from the API with their respective types.
+
+![SearchSubtitlesParams](https://i.postimg.cc/yYZVMzH0/searchsubparam.png)
+![QueryParams](https://i.postimg.cc/v8SrP5Yc/Screenshot-2025-01-13-8-40-11-AM.png)
+![SubtitleData](https://i.postimg.cc/6QdCb8xP/subdata.png)
 
 <hr />
 

@@ -1,6 +1,6 @@
 {
   "name": "wyzie-lib",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "icon": "https://i.postimg.cc/L5ppKYC5/cclogo.png",
   "license": "MIT",
   "keywords": [
@@ -31,6 +31,26 @@
       "require": {
         "types": "./lib/main.d.ts",
         "default": "./lib/main.umd.cjs"
+      },
+      "umd": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.umd.js"
+      },
+      "es": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.es.js"
+      },
+      "cjs": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.cjs.js"
+      },
+      "iife": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.iife.js"
+      },
+      "amd": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.amd.js"
       }
     }
   },
@@ -39,7 +59,6 @@
     "url": "git+https://github.com/itzcozi/wyzie-lib.git"
   },
   "scripts": {
-    "dev": "vite",
     "build": "vite build && tsc",
     "test": "npx vitest",
     "format": "prettier --log-level warn --write \"{src/**/*.{ts},*.{ts,js,html,css,json,md,xml}}\"",

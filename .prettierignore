@@ -2,4 +2,4 @@ build
 
 # Ignore specific directories:
 node_modules
-dist
+lib

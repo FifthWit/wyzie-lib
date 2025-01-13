@@ -25,6 +25,11 @@ describe("Search Subtitles", () => {
           expect(item).toHaveProperty("id");
           expect(item).toHaveProperty("url");
           expect(item).toHaveProperty("format");
+          expect(item).toHaveProperty("isHearingImpaired");
+          expect(item).toHaveProperty("flagUrl");
+          expect(item).toHaveProperty("media");
+          expect(item).toHaveProperty("display");
+          expect(item).toHaveProperty("language");
         });
       },
     );
