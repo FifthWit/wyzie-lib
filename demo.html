@@ -64,7 +64,6 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      /* Controls styling */
       .controls {
         margin: 1rem 0;
         display: flex;
@@ -86,7 +85,6 @@
         background: var(--hover-color);
       }
 
-      /* Status and debug output styling */
       #status {
         margin: 1rem 0;
         padding: 1rem;
@@ -117,7 +115,6 @@
         border-left: 4px solid var(--text-color);
       }
 
-      /* Documentation sections */
       .doc-section {
         margin: 2rem 0;
         padding: 1rem;
@@ -159,7 +156,6 @@
           <source
             src="https://anondrop.net/1328112304386084955/the%20martian.mp4"
             type="video/mp4" />
-          <!-- Subtitles track will be added here dynamically -->
         </video>
 
         <div class="controls">
@@ -180,7 +176,6 @@
         </ul>
       </div>
 
-      <!-- Status and debug output -->
       <div id="status"></div>
       <div id="debug"></div>
     </div>
@@ -188,13 +183,11 @@
     <script type="module">
       import { searchSubtitles, parseToVTT } from "./lib/main.js";
 
-      // Debug logging helper
       function updateDebug(message) {
         const debug = document.getElementById("debug");
         debug.innerHTML += `${new Date().toISOString()} - ${message}<br>`;
       }
 
-      // Toggle subtitle visibility
       window.toggleSubtitles = function () {
         const video = document.getElementById("video");
         const track = video.textTracks[0];
@@ -206,18 +199,16 @@
         }
       };
 
-      // Load and apply subtitles
       window.loadSubtitles = async function () {
         const status = document.getElementById("status");
         const video = document.getElementById("video");
         const debug = document.getElementById("debug");
-        debug.innerHTML = ""; // Clear previous debug messages
+        debug.innerHTML = "";
 
         try {
           status.textContent = "Loading subtitles...";
           status.className = "";
 
-          // Fetch subtitles
           const subtitles = await searchSubtitles({
             tmdb_id: 286217,
             format: "srt",
@@ -230,23 +221,19 @@
           const subtitleUrl = subtitles[0].url;
           updateDebug(`Fetched subtitle URL: ${subtitleUrl}`);
 
-          // Parse subtitles to VTT format
           const vttContent = await parseToVTT(subtitleUrl);
           updateDebug(`Received VTT content (first 100 chars): ${vttContent.substring(0, 100)}`);
 
-          // Create a Blob URL for the VTT content
           const blob = new Blob([vttContent], { type: "text/vtt" });
           const vttBlobUrl = URL.createObjectURL(blob);
           updateDebug(`Created VTT Blob URL: ${vttBlobUrl}`);
 
-          // Remove existing track if any
           const existingTrack = video.querySelector("track");
           if (existingTrack) {
             video.removeChild(existingTrack);
             updateDebug("Removed existing track");
           }
 
-          // Add the new subtitle track
           const track = document.createElement("track");
           track.kind = "subtitles";
           track.label = "English";
@@ -257,7 +244,6 @@
           video.appendChild(track);
           updateDebug("Added new track element");
 
-          // Force the track to show
           setTimeout(() => {
             const textTrack = video.textTracks[0];
             if (textTrack) {
@@ -274,7 +260,6 @@
         3. Try playing the video`;
           status.className = "success";
 
-          // Track event listeners for debugging
           track.addEventListener("load", () => {
             updateDebug("Track loaded successfully");
           });
