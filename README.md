@@ -43,12 +43,10 @@ yarn add wyzie-lib
 import { type SubtitleData, searchSubtitles, parseToVTT } from "wyzie-lib";
 
 // Fetches all subtitles for the media with the TMDB ID 286217
-// -----------------------------------------------------------
 const data: SubtitleData[] = await searchSubtitles({ tmdb_id: 286217, format: "srt" });
 console.log(data[0].id); // Prints the ID of the first subtitle object
 
 // Converts the first subtitle from SRT to VTT format
-// --------------------------------------------------
 const vttContent = await parseToVTT(data[0].url); // Passes the first subtitle URL
 console.log(vttContent); // Prints the raw VTT content
 ```

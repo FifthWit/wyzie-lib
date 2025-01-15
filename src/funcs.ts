@@ -85,31 +85,42 @@ export async function parseToVTT(subtitleUrl: string): Promise<string> {
     const timestampRegex = /^\d{1,2}:\d{2}:\d{2}[,.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{3}$/;
 
     // Check for valid SRT format
-    if (!blocks.some((block) => timestampRegex.test(block))) {
+    const hasValidSRTFormat = blocks.some((block) => {
+      const lines = block.split("\n").map((line) => line.trim());
+      return lines.some((line) => timestampRegex.test(line));
+    });
+    if (!hasValidSRTFormat) {
       throw new Error("Invalid subtitle format: not SRT");
     }
 
     const vttLines: string[] = ["WEBVTT", ""];
 
     for (const block of blocks) {
-      const lines = block.split("\n").map((line) => line.trim());
+      const lines = block
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+      if (lines.length < 2) continue;
       const timestampIndex = lines.findIndex((line) => timestampRegex.test(line));
-      if (timestampIndex === -1 || lines.length <= timestampIndex + 1) continue;
-
-      let timestampLine = lines[timestampIndex]
+      if (timestampIndex === -1) continue;
+      const textLines = lines.slice(timestampIndex + 1).filter((line) => !/^\d+$/.test(line));
+      if (textLines.length === 0) continue;
+      let timestampLine = lines[timestampIndex];
+      timestampLine = timestampLine
         .replace(/[,.](?=\s*-->)/, "")
         .replace(/[,.]$/, "")
         .replace(/,(\d{3})/g, ".$1");
-
-      const textLines = lines.slice(timestampIndex + 1).filter((line) => line && !/^\d+$/.test(line));
-      if (textLines.length === 0) continue;
-
       vttLines.push(`${timestampLine}\n${textLines.join("\n")}\n`);
     }
 
-    return vttLines.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n\n";
+    return (
+      vttLines
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim() + "\n\n"
+    );
   } catch (error) {
     console.error("Error in parseToVTT:", error);
     throw error;
   }
-};
+}
