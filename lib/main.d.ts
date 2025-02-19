@@ -17,6 +17,8 @@ export declare type QueryParams = {
     season?: number;
     /** Episode number if the content is a series. */
     episode?: number;
+    /** Encoding of the subtitle files. */
+    encoding?: string;
     /** ISO 3166 code of the subtitle desired. */
     language?: string;
     /** Which subtitle file format you want */
@@ -51,6 +53,8 @@ export declare type SearchSubtitlesParams = (
 }) & {
     /** ISO 3166 code of the subtitle desired. */
     language?: string;
+    /** The subtitle file's encoding (UTF-8, ASCII)   */
+    encoding?: string;
     /** Which subtitle file format you want. */
     format?: string;
     /** Determines if you get hearing impaired subtitles. */
@@ -77,6 +81,8 @@ export declare type SubtitleData = {
     url: string;
     /** The format of the subtitle file. */
     format: string;
+    /** The encoding of the subtitle files. (UTF-8, ASCII, ETC) */
+    encoding: string;
     /** Boolean indicating if the subtitle's is hearing impaired. */
     isHearingImpaired: boolean;
     /** URL to a PNG of the flag of the subtitle's language. */

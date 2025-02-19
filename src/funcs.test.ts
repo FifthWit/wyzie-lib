@@ -17,7 +17,7 @@ describe("Parse to VTT", () => {
 
 describe("Search Subtitles", () => {
   it("Should Search Subtitles", () => {
-    searchSubtitles({ tmdb_id: 2190, season: 1, episode: 1, language: "en", format: "srt" }).then(
+    searchSubtitles({ tmdb_id: 2190, season: 1, episode: 1, language: "en", format: "srt", encoding: "utf-8" }).then(
       (data) => {
         expect(data).toBeInstanceOf(Array);
         expect(data.length).toBeGreaterThan(0);
@@ -28,6 +28,7 @@ describe("Search Subtitles", () => {
           expect(item).toHaveProperty("isHearingImpaired");
           expect(item).toHaveProperty("flagUrl");
           expect(item).toHaveProperty("media");
+          expect(item).toHaveProperty("encoding");
           expect(item).toHaveProperty("display");
           expect(item).toHaveProperty("language");
         });

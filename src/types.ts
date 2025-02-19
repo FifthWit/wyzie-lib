@@ -31,6 +31,8 @@ export type SubtitleData = {
   url: string;
   /** The format of the subtitle file. */
   format: string;
+  /** The encoding of the subtitle files. (UTF-8, ASCII, ETC) */
+  encoding: string;
   /** Boolean indicating if the subtitle's is hearing impaired. */
   isHearingImpaired: boolean;
   /** URL to a PNG of the flag of the subtitle's language. */
@@ -53,6 +55,8 @@ export type QueryParams = {
   season?: number;
   /** Episode number if the content is a series. */
   episode?: number;
+  /** Encoding of the subtitle files. */
+  encoding?: string;
   /** ISO 3166 code of the subtitle desired. */
   language?: string;
   /** Which subtitle file format you want */
