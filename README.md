@@ -72,9 +72,8 @@ for a working example using the VTT parser.
 - **QueryParams**: All parameters (optional and required) available for the wyzie-subs API.
 - **SubtitleData**: All returned values from the API with their respective types.
 
-![SearchSubtitlesParams](https://i.postimg.cc/yYZVMzH0/searchsubparam.png)
-![QueryParams](https://i.postimg.cc/v8SrP5Yc/Screenshot-2025-01-13-8-40-11-AM.png)
-![SubtitleData](https://i.postimg.cc/6QdCb8xP/subdata.png)
+Check out the types.ts file
+[here](https://raw.githubusercontent.com/itzCozi/wyzie-lib/refs/heads/main/src/types.ts).
 
 <hr />
 

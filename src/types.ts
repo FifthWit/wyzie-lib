@@ -10,6 +10,8 @@ export type SearchSubtitlesParams = (
 ) & {
   /** ISO 3166 code of the subtitle desired. */
   language?: string;
+  /** The subtitle file's character encoding.  */
+  encoding?: string;
   /** Which subtitle file format you want. */
   format?: string;
   /** Determines if you get hearing impaired subtitles. */
@@ -31,7 +33,7 @@ export type SubtitleData = {
   url: string;
   /** The format of the subtitle file. */
   format: string;
-  /** The encoding of the subtitle files. (UTF-8, ASCII, ETC) */
+  /** The subtitle file's character encoding. (UTF-8, ASCII, ETC) */
   encoding: string;
   /** Boolean indicating if the subtitle's is hearing impaired. */
   isHearingImpaired: boolean;
