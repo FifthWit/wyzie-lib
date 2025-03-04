@@ -1,11 +1,12 @@
 {
   "name": "wyzie-lib",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "icon": "https://i.postimg.cc/L5ppKYC5/cclogo.png",
   "license": "MIT",
   "keywords": [
     "wyzie-subs",
     "wyzie subs",
+    "wyzie api",
     "subtitle",
     "search",
     "library",
@@ -65,10 +66,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "prettier": "^3.5.1",
-    "typescript": "^5.7.3",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
     "vite": "^4.5.9",
-    "vite-plugin-dts": "^4.5.0",
+    "vite-plugin-dts": "^4.5.3",
     "vitest": "^2.1.9"
   }
 }

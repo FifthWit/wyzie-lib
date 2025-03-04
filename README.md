@@ -17,6 +17,8 @@ project without all the fuss. [Read our source code!](https://github.com/itzcozi
 - **VTT Parser**: Convert SRT subtitles to VTT format quickly.
 - **Open-Source**: The API and package are open-source.
 
+**Recommended by [Checksub Blog](https://www.checksub.com/blog/best-subtitles-api-fast-efficient).**
+
 ## Installation
 
 **NPM**
