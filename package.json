@@ -60,6 +60,7 @@
     "url": "git+https://github.com/itzcozi/wyzie-lib.git"
   },
   "scripts": {
+    "dev": "vite",
     "build": "vite build && tsc",
     "test": "npx vitest",
     "format": "prettier --log-level warn --write \"{src/**/*.{ts},*.{ts,js,html,css,json,md,xml}}\"",
