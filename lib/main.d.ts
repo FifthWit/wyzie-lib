@@ -51,12 +51,12 @@ export declare type SearchSubtitlesParams = (
     imdb_id: string;
     tmdb_id?: never;
 }) & {
-    /** ISO 3166 code of the subtitle desired. */
-    language?: string;
-    /** The subtitle file's character encoding.  */
-    encoding?: string;
-    /** Which subtitle file format you want. */
-    format?: string;
+    /** ISO 3166 code or codes of the subtitle desired. */
+    language?: string | string[];
+    /** The subtitle file's character encoding or encodings.  */
+    encoding?: string | string[];
+    /** Which subtitle file format(s) you want. */
+    format?: string | string[];
     /** Determines if you get hearing impaired subtitles. */
     hi?: boolean;
 } & (

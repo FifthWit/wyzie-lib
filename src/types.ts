@@ -16,6 +16,8 @@ export type SearchSubtitlesParams = (
   format?: string | string[];
   /** Determines if you get hearing impaired subtitles. */
   hi?: boolean;
+  /** The source where the subtitle where be scraped. */
+  source?: string;
 } & (
   /** The number of the desired season you want subtitles for. */
   | { season: number; episode: number }
@@ -45,6 +47,8 @@ export type SubtitleData = {
   display: string;
   /** ISO 3166 code; Example: en (2 alphabetic letters). */
   language: string;
+  /** The subtitle's source. */
+  source: number;
 };
 
 /**
@@ -65,4 +69,6 @@ export type QueryParams = {
   format?: string;
   /** Determines if you get a hearing impaired subtitles */
   hi?: boolean;
+  /** The source where the subtitle will be scraped from. */
+  source?: string;
 }

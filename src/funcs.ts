@@ -14,6 +14,7 @@ async function constructUrl({
   encoding,
   language,
   format,
+  source,
   hi,
 }: SearchSubtitlesParams): Promise<URL> {
   const url = new URL("https://sub.wyzie.ru/search");
@@ -24,6 +25,7 @@ async function constructUrl({
     encoding: Array.isArray(encoding) ? encoding.join(",") : encoding,
     language: Array.isArray(language) ? language.join(",") : language,
     format: Array.isArray(format) ? format.join(",") : format,
+    source: Array.isArray(source) ? source.join(",") : source,
     hi,
   };
 
