@@ -16,8 +16,10 @@ async function constructUrl({
   format,
   source,
   hi,
+  ...extraParams
 }: SearchSubtitlesParams): Promise<URL> {
   const url = new URL("https://sub.wyzie.ru/search");
+  
   const queryParams: QueryParams = {
     id: String(tmdb_id || imdb_id),
     season,
@@ -32,6 +34,17 @@ async function constructUrl({
   Object.entries(queryParams).forEach(([key, value]) => {
     if (value !== undefined) {
       url.searchParams.append(key, String(value));
+    }
+  });
+
+  // Add any extra parameters to the URL
+  Object.entries(extraParams).forEach(([key, value]) => {
+    if (value !== undefined) {
+      if (Array.isArray(value)) {
+        url.searchParams.append(key, value.join(","));
+      } else {
+        url.searchParams.append(key, String(value));
+      }
     }
   });
 

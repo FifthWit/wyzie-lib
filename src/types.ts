@@ -18,6 +18,8 @@ export type SearchSubtitlesParams = (
   hi?: boolean;
   /** The source where the subtitle where be scraped. */
   source?: string;
+  /** Additional parameters that can be used for filtering or other purposes. */
+  [key: string]: any;
 } & (
   /** The number of the desired season you want subtitles for. */
   | { season: number; episode: number }
