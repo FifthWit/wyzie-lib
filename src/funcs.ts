@@ -1,4 +1,21 @@
-import { SearchSubtitlesParams, SubtitleData, QueryParams } from "./types";
+import { SearchSubtitlesParams, SubtitleData, QueryParams, ConfigurationOptions } from "./types";
+
+// Config object
+const config = {
+  baseUrl: "https://sub.wyzie.ru"
+};
+
+/**
+ * Configure the library settings.
+ * 
+ * @param {ConfigurationOptions} options - Config options for the library.
+ * @throws {Error} Throws an error if the baseUrl is not provided.
+ */
+export function configure(options: ConfigurationOptions) {
+  if (options.baseUrl) {
+    config.baseUrl = options.baseUrl.replace(/\/$/, ''); // Remove trailing slash if present
+  }
+}
 
 /**
  * Constructs a URL for searching subtitles based on the provided parameters.
@@ -18,7 +35,7 @@ async function constructUrl({
   hi,
   ...extraParams
 }: SearchSubtitlesParams): Promise<URL> {
-  const url = new URL("https://sub.wyzie.ru/search");
+  const url = new URL(`${config.baseUrl}/search`);
   
   const queryParams: QueryParams = {
     id: String(tmdb_id || imdb_id),
@@ -30,6 +47,8 @@ async function constructUrl({
     source: Array.isArray(source) ? source.join(",") : source,
     hi,
   };
+
+  // ... rest of the function remains the same
 
   Object.entries(queryParams).forEach(([key, value]) => {
     if (value !== undefined) {

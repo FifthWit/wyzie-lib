@@ -74,3 +74,11 @@ export type QueryParams = {
   /** The source where the subtitle will be scraped from. */
   source?: string;
 }
+
+/**
+ * Type for the configuration options for the library.
+ */
+export type ConfigurationOptions = {
+  /** The API's hostname (default: sub.wyzie.ru) */
+  baseUrl: string;
+}

@@ -58,3 +58,32 @@ describe("Search Subtitles With Lists", () => {
     );
   });
 });
+
+describe("Search Subtitles From All Sources", () => {
+  it("Should search subtitles from all sources", () => {
+    searchSubtitles({ 
+      tmdb_id: 1438, 
+      season: 1, 
+      episode: 1, 
+      language: "en", 
+      source: "all" 
+    }).then(
+      (data) => {
+        expect(data).toBeInstanceOf(Array);
+        expect(data.length).toBeGreaterThan(0);
+        data.forEach((item) => {
+          expect(item).toHaveProperty("id");
+          expect(item).toHaveProperty("url");
+          expect(item).toHaveProperty("format");
+          expect(item).toHaveProperty("isHearingImpaired");
+          expect(item).toHaveProperty("flagUrl");
+          expect(item).toHaveProperty("media");
+          expect(item).toHaveProperty("encoding");
+          expect(item).toHaveProperty("display");
+          expect(item).toHaveProperty("language");
+          expect(item).toHaveProperty("source");
+        });
+      },
+    );
+  });
+});

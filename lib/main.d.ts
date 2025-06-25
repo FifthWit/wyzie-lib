@@ -1,4 +1,20 @@
 /**
+ * Type for the configuration options for the library.
+ */
+export declare type ConfigurationOptions = {
+    /** The API's hostname (default: sub.wyzie.ru) */
+    baseUrl: string;
+};
+
+/**
+ * Configure the library settings.
+ *
+ * @param {ConfigurationOptions} options - Config options for the library.
+ * @throws {Error} Throws an error if the baseUrl is not provided.
+ */
+export declare function configure(options: ConfigurationOptions): void;
+
+/**
  * Parses subtitle content from a URL to VTT format.
  *
  * @param {string} subtitleUrl - The URL of the subtitle to parse.
@@ -63,6 +79,8 @@ export declare type SearchSubtitlesParams = (
     hi?: boolean;
     /** The source where the subtitle where be scraped. */
     source?: string;
+    /** Additional parameters that can be used for filtering or other purposes. */
+    [key: string]: any;
 } & (
 /** The number of the desired season you want subtitles for. */
     {
