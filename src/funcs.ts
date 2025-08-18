@@ -2,7 +2,7 @@ import { SearchSubtitlesParams, SubtitleData, QueryParams, ConfigurationOptions 
 
 // Config object
 const config = {
-  baseUrl: "https://sub.wyzie.ru"
+  baseUrl: "https://libre-subs.fifthwit.net"
 };
 
 /**
