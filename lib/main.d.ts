@@ -2,7 +2,7 @@
  * Type for the configuration options for the library.
  */
 export declare type ConfigurationOptions = {
-    /** The API's hostname (default: sub.wyzie.ru) */
+    /** The API's hostname (default: libre-subs.fifthwit.net) */
     baseUrl: string;
 };
 
